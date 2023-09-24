@@ -29,6 +29,7 @@ Zostało utworzonych 11 encji, w tym jedna tabela łącząca:
 - Reżyserzy
 - Sale
 - Seanse
+  
 Tabela łącząca: 
 - SA_MI
 
