@@ -39,3 +39,5 @@ Plik z utworzeniem tabel oraz polecenia DDL służące do wykonania relacji pomi
 ## Wypełnienie tabel danymi
 
 Lista komend wypełniających tabele w pliku **INSERT DATA**
+
+Pliki reżyserzy1 i reżyserzy2 prezentują wygląd tabeli reżyserzy.
