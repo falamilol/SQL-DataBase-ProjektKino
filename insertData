@@ -1,0 +1,205 @@
+INSERT INTO PROJEKTORY (projektor_id, rozdzielczosc, czy_3d) VALUES (projektor_id_seq.NEXTVAL, '2048x1080', 0);
+INSERT INTO PROJEKTORY (projektor_id, rozdzielczosc, czy_3d) VALUES (projektor_id_seq.NEXTVAL, '2048x1080', 0);
+INSERT INTO PROJEKTORY (projektor_id, rozdzielczosc, czy_3d) VALUES (projektor_id_seq.NEXTVAL, '4096x2160', 0);
+INSERT INTO PROJEKTORY (projektor_id, rozdzielczosc, czy_3d) VALUES (projektor_id_seq.NEXTVAL, '4096x2160', 0);
+INSERT INTO PROJEKTORY (projektor_id, rozdzielczosc, czy_3d) VALUES (projektor_id_seq.NEXTVAL, '4096x2160', 0);
+INSERT INTO PROJEKTORY (projektor_id, rozdzielczosc, czy_3d) VALUES (projektor_id_seq.NEXTVAL, '4096x2160', 1);
+INSERT INTO PROJEKTORY (projektor_id, rozdzielczosc, czy_3d) VALUES (projektor_id_seq.NEXTVAL, '4096x2160', 1);
+INSERT INTO PROJEKTORY (projektor_id, rozdzielczosc, czy_3d) VALUES (projektor_id_seq.NEXTVAL, '2048x1080', 1);
+
+
+COMMIT;
+
+
+INSERT INTO REŻYSERZY (REZYSER_ID, IMIE, NAZWISKO, ILOSC_NAGROD) VALUES (1, 'Joel', 'Crawford', NULL);
+INSERT INTO REŻYSERZY (REZYSER_ID, IMIE, NAZWISKO, ILOSC_NAGROD) VALUES (2, 'James', 'Cameron', 25);
+INSERT INTO REŻYSERZY (REZYSER_ID, IMIE, NAZWISKO, ILOSC_NAGROD) VALUES (3, 'Ryan', 'Coogler', 18);
+INSERT INTO REŻYSERZY (REZYSER_ID, IMIE, NAZWISKO, ILOSC_NAGROD) VALUES (4, 'Peyton', 'Reed', 1);
+INSERT INTO REŻYSERZY (REZYSER_ID, IMIE, NAZWISKO, ILOSC_NAGROD) VALUES (5, 'Juan Jesús García', 'Galocha', NULL);
+INSERT INTO REŻYSERZY (REZYSER_ID, IMIE, NAZWISKO, ILOSC_NAGROD) VALUES (6, 'Chad', 'Stahelski', NULL);
+INSERT INTO REŻYSERZY (REZYSER_ID, IMIE, NAZWISKO, ILOSC_NAGROD) VALUES(7, 'Damien', 'Chazelle', 18);
+INSERT INTO REŻYSERZY (REZYSER_ID, IMIE, NAZWISKO, ILOSC_NAGROD) VALUES (8, 'Oliver', 'Parker', NULL);
+INSERT INTO REŻYSERZY (REZYSER_ID, IMIE, NAZWISKO, ILOSC_NAGROD) VALUES (9, 'Kat', 'Coiro', NULL);
+INSERT INTO REŻYSERZY (REZYSER_ID, IMIE, NAZWISKO, ILOSC_NAGROD) VALUES (10, 'Gerard', 'Johnstone', NULL);
+INSERT INTO REŻYSERZY (REZYSER_ID, IMIE, NAZWISKO, ILOSC_NAGROD) VALUES (11, 'Joseph', 'Kosinski', NULL);
+
+COMMIT;
+
+SELECT * FROM REŻYSERZY;
+
+INSERT INTO SALE (sala_id, pojemnosc, ile_rzedow, projektory_projektor_id) VALUES (1, 25, 5, 10);
+INSERT INTO SALE (sala_id, pojemnosc, ile_rzedow, projektory_projektor_id) VALUES (2, 25, 5, 20);
+INSERT INTO SALE (sala_id, pojemnosc, ile_rzedow, projektory_projektor_id) VALUES (3, 25, 5, 30);
+INSERT INTO SALE (sala_id, pojemnosc, ile_rzedow, projektory_projektor_id) VALUES (4, 25, 5, 40);
+INSERT INTO SALE (sala_id, pojemnosc, ile_rzedow, projektory_projektor_id) VALUES (5, 20, 4, 50);
+INSERT INTO SALE (sala_id, pojemnosc, ile_rzedow, projektory_projektor_id) VALUES (6, 20, 4, 60);
+INSERT INTO SALE (sala_id, pojemnosc, ile_rzedow, projektory_projektor_id) VALUES (7, 20, 4, 70);
+INSERT INTO SALE (sala_id, pojemnosc, ile_rzedow, projektory_projektor_id) VALUES (8, 20, 4, 80);
+
+COMMIT;
+
+SELECT * FROM SALE;
+
+INSERT INTO FILMY (FILM_ID, GATUNEK, CZAS_TRWANIA, ROK_PRODUKCJI, TYTUL, REŻYSERZY_REZYSER_ID) VALUES (1, 'Familijny', 100, 2022, 'Kot w butach. Ostatnie życzenie', 1);
+INSERT INTO FILMY (FILM_ID, GATUNEK, CZAS_TRWANIA, ROK_PRODUKCJI, TYTUL, REŻYSERZY_REZYSER_ID) VALUES (2, 'Science-fiction', 193, 2022, 'Avatar: Istota wody', 2);
+INSERT INTO FILMY (FILM_ID, GATUNEK, CZAS_TRWANIA, ROK_PRODUKCJI, TYTUL, REŻYSERZY_REZYSER_ID) VALUES (3, 'Science-fiction', 161, 2022, 'Czarna Pantera: Wakanda w moim sercu', 3);
+INSERT INTO FILMY (FILM_ID, GATUNEK, CZAS_TRWANIA, ROK_PRODUKCJI, TYTUL, REŻYSERZY_REZYSER_ID) VALUES (4, 'Science-fiction', 125, 2023, 'Ant Man i Osa: Kwantomania', 4);
+INSERT INTO FILMY (FILM_ID, GATUNEK, CZAS_TRWANIA, ROK_PRODUKCJI, TYTUL, REŻYSERZY_REZYSER_ID) VALUES (5, 'Familijny', 98, 2023, 'Mumie', 5);
+INSERT INTO FILMY (FILM_ID, GATUNEK, CZAS_TRWANIA, ROK_PRODUKCJI, TYTUL, REŻYSERZY_REZYSER_ID) VALUES (6, 'Thriller', 123, 2023, 'John Wick 4', 6);
+INSERT INTO FILMY (FILM_ID, GATUNEK, CZAS_TRWANIA, ROK_PRODUKCJI, TYTUL, REŻYSERZY_REZYSER_ID) VALUES (7, 'Dramat', 189, 2023, 'Babilon', 7);
+INSERT INTO FILMY (FILM_ID, GATUNEK, CZAS_TRWANIA, ROK_PRODUKCJI, TYTUL, REŻYSERZY_REZYSER_ID) VALUES (8, 'Komedia romantyczna', 104, 2022, 'Bilet do raju', 8);
+INSERT INTO FILMY (FILM_ID, GATUNEK, CZAS_TRWANIA, ROK_PRODUKCJI, TYTUL, REŻYSERZY_REZYSER_ID) VALUES (9, 'Komedia romantyczna', 112, 2022, 'Wyjdź za mnie', 9);
+INSERT INTO FILMY (FILM_ID, GATUNEK, CZAS_TRWANIA, ROK_PRODUKCJI, TYTUL, REŻYSERZY_REZYSER_ID) VALUES (10, 'Horror', 102, 2022, 'M3GAN', 10);
+INSERT INTO FILMY (FILM_ID, GATUNEK, CZAS_TRWANIA, ROK_PRODUKCJI, TYTUL, REŻYSERZY_REZYSER_ID) VALUES (11, 'Akcja', 131, 2022, 'Top Gun: Maverick', 11);
+
+COMMIT;
+
+SELECT * FROM FILMY;
+
+INSERT INTO KLIENCI (klient_id, imie, nazwisko, email, czy_pelnoletni) VALUES (1, 'Marta', 'Szark', 'ms@gmail.com', 1);
+INSERT INTO KLIENCI (klient_id, imie, nazwisko, email, czy_pelnoletni) VALUES (2, 'Wiktor', 'Malin', 'wm@gmail.com', 1);
+INSERT INTO KLIENCI (klient_id, imie, nazwisko, email, czy_pelnoletni) VALUES (3, 'Patryk', 'Suter', 'ps@gmail.com', 1);
+INSERT INTO KLIENCI (klient_id, imie, nazwisko, email, czy_pelnoletni) VALUES (4, 'Gabriela', 'Hre', 'gh@gmail.com', 1);
+INSERT INTO KLIENCI (klient_id, imie, nazwisko, email, czy_pelnoletni) VALUES (5, 'Katarzyna', 'Kowalska', NULL, 0);
+INSERT INTO KLIENCI (klient_id, imie, nazwisko, email, czy_pelnoletni) VALUES (6, 'Julia', 'Nowak', 'jn@gmail.com', 1);
+INSERT INTO KLIENCI (klient_id, imie, nazwisko, email, czy_pelnoletni) VALUES (7, 'Wojciech', 'Dudek', 'wd@gmail.com', 0);
+INSERT INTO KLIENCI (klient_id, imie, nazwisko, email, czy_pelnoletni) VALUES (8, 'Marek', 'Lewandowski', 'ml@gmail.com', 1);
+INSERT INTO KLIENCI (klient_id, imie, nazwisko, email, czy_pelnoletni) VALUES (9, 'Jacek', 'Kapusta', 'jk@gmail.com', 0);
+INSERT INTO KLIENCI (klient_id, imie, nazwisko, email, czy_pelnoletni) VALUES (10, 'Aleskandra', 'Lipiec', 'al@gmail.com', 0);
+
+COMMIT;
+
+SELECT * FROM KLIENCI;
+
+INSERT INTO PRACOWNICY (pracownik_id, imie, nazwisko, data_zatrudnienia, pensja) VALUES (pracownik_id_seq.NEXTVAL, 'Amanda', 'Uglyfoot', TO_DATE('01/09/2022', 'DD/MM/YYYY'), 2000); 
+INSERT INTO PRACOWNICY (pracownik_id, imie, nazwisko, data_zatrudnienia, pensja) VALUES (pracownik_id_seq.NEXTVAL, 'William', 'Shortarms', TO_DATE('02/10/2021', 'DD/MM/YYYY'), 1500);
+INSERT INTO PRACOWNICY (pracownik_id, imie, nazwisko, data_zatrudnienia, pensja) VALUES (pracownik_id_seq.NEXTVAL, 'Lee', 'Dickson', TO_DATE('03/04/2022', 'DD/MM/YYYY'), 2000);
+INSERT INTO PRACOWNICY (pracownik_id, imie, nazwisko, data_zatrudnienia, pensja) VALUES (pracownik_id_seq.NEXTVAL, 'Danny', 'Nohair', TO_DATE('17/08/2021', 'DD/MM/YYYY'), 1800);
+INSERT INTO PRACOWNICY (pracownik_id, imie, nazwisko, data_zatrudnienia, pensja) VALUES (pracownik_id_seq.NEXTVAL, 'Phillip', 'Smellyhands', TO_DATE('23/12/2022', 'DD/MM/YYYY'), 1900);
+INSERT INTO PRACOWNICY (pracownik_id, imie, nazwisko, data_zatrudnienia, pensja) VALUES (pracownik_id_seq.NEXTVAL, 'Robert', 'Yellowteeth', TO_DATE('30/11/2021', 'DD/MM/YYYY'), 2200);
+INSERT INTO PRACOWNICY (pracownik_id, imie, nazwisko, data_zatrudnienia, pensja) VALUES (pracownik_id_seq.NEXTVAL, 'Jennifer', 'Ohio', TO_DATE('20/07/2022', 'DD/MM/YYYY'), 2000);
+INSERT INTO PRACOWNICY (pracownik_id, imie, nazwisko, data_zatrudnienia, pensja) VALUES (pracownik_id_seq.NEXTVAL, 'Monica', 'Greenbottle', TO_DATE('13/09/2022', 'DD/MM/YYYY'), 1500);
+
+COMMIT;
+
+SELECT * FROM PRACOWNICY;
+
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI, GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (1, TO_DATE('2023-01-31', 'YYYY-MM-DD'), '11:10', 'Dubbing', 1);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI, GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (2, TO_DATE('2023-02-05', 'YYYY-MM-DD'), '14:25', 'Napisy', 2);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI, GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (3, TO_DATE('2023-02-03', 'YYYY-MM-DD'), '20:20', 'Napisy', 3);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI, GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (4, TO_DATE('2023-02-05', 'YYYY-MM-DD'), '10:00', 'Lektor', 4);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI, GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (5, TO_DATE('2023-02-03', 'YYYY-MM-DD'), '21:40', 'Dubbing', 5);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI, GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (6, TO_DATE('2023-02-02', 'YYYY-MM-DD'), '22:30', 'Napisy', 6);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI, GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (7, TO_DATE('2023-02-04', 'YYYY-MM-DD'), '19:10', 'Napisy', 7);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI, GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (8, TO_DATE('2023-02-01', 'YYYY-MM-DD'), '18:45', 'Napisy', 8);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI, GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (9, TO_DATE('2023-01-30', 'YYYY-MM-DD'), '17:30', 'Lektor', 9);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI, GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (10, TO_DATE('2023-01-30', 'YYYY-MM-DD'), '14:10', 'Napisy', 10);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI, GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (11, TO_DATE('2023-01-31', 'YYYY-MM-DD'), '15:25', 'Napisy', 11);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI, GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (12, TO_DATE('2023-01-31', 'YYYY-MM-DD'), '13:50', 'Lektor', 10);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI, GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (13, TO_DATE('2023-01-31', 'YYYY-MM-DD'), '11:40', 'Lektor', 3);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI, GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (14, TO_DATE('2023-01-30', 'YYYY-MM-DD'), '12:50', 'Napisy', 4);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI, GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (15, TO_DATE('2023-01-30', 'YYYY-MM-DD'), '13:30', 'Dubbing', 5);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI, GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (16, TO_DATE('2023-02-02', 'YYYY-MM-DD'), '15:20', 'Napisy', 6);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI, GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (17, TO_DATE('2023-02-01', 'YYYY-MM-DD'), '17:10', 'Lektor', 7);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI, GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (18, TO_DATE('2023-01-30', 'YYYY-MM-DD'), '19:40', 'Napisy', 8);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI, GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (19, TO_DATE('2023-01-31', 'YYYY-MM-DD'), '20:00', 'Napisy', 9);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI, GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (20, TO_DATE('2023-01-31', 'YYYY-MM-DD'), '22:30', 'Napisy', 11);
+
+COMMIT;
+
+SELECT * FROM SEANSE;
+
+INSERT INTO DYŻURY (dyzur_id, pracownicy_pracownik_id, data_dyzuru, sale_sala_id) VALUES (200, 100, TO_DATE('31/01/2023', 'DD/MM/YYYY'), 1);
+INSERT INTO DYŻURY (dyzur_id, pracownicy_pracownik_id, data_dyzuru, sale_sala_id) VALUES (201, 101, TO_DATE('31/01/2023', 'DD/MM/YYYY'), 2);
+INSERT INTO DYŻURY (dyzur_id, pracownicy_pracownik_id, data_dyzuru, sale_sala_id) VALUES (202, 102, TO_DATE('31/01/2023', 'DD/MM/YYYY'), 3);
+INSERT INTO DYŻURY (dyzur_id, pracownicy_pracownik_id, data_dyzuru, sale_sala_id) VALUES (203, 103, TO_DATE('31/01/2023', 'DD/MM/YYYY'), 4);
+INSERT INTO DYŻURY (dyzur_id, pracownicy_pracownik_id, data_dyzuru, sale_sala_id) VALUES (204, 104, TO_DATE('31/01/2023', 'DD/MM/YYYY') , 5);
+INSERT INTO DYŻURY (dyzur_id, pracownicy_pracownik_id, data_dyzuru, sale_sala_id) VALUES (205, 105, TO_DATE('31/01/2023', 'DD/MM/YYYY'), 6);
+INSERT INTO DYŻURY (dyzur_id, pracownicy_pracownik_id, data_dyzuru, sale_sala_id) VALUES (206, 106, TO_DATE('31/01/2023', 'DD/MM/YYYY'), 7);
+INSERT INTO DYŻURY (dyzur_id, pracownicy_pracownik_id, data_dyzuru, sale_sala_id) VALUES (207, 107, TO_DATE('31/01/2023', 'DD/MM/YYYY'), 8);
+
+SELECT * FROM DYŻURY;
+
+COMMIT;
+
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (1, 'podwójne', 'A01');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (2, 'podwójne', 'A02');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (3, 'podwójne', 'A03');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (4, 'podwójne', 'A04');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (5, 'podwójne', 'A05');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (6, 'podwójne', 'B01');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (7, 'podwójne', 'B02');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (8, 'podwójne', 'B03');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (9, 'podwójne', 'B04');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (10, 'podwójne', 'B05');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (11, 'pojedyncze', 'C01');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (12, 'pojedyncze', 'C02');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (13, 'pojedyncze', 'C03');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (14, 'pojedyncze', 'C04');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (15, 'pojedyncze', 'C05');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (16, 'pojedyncze', 'E01');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (17, 'pojedyncze', 'E02');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (18, 'pojedyncze', 'E03');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (19, 'pojedyncze', 'E04');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (20, 'pojedyncze', 'E05');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (21, 'VIP', 'D01');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (22, 'VIP', 'D02');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (23, 'VIP', 'D03');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (24, 'VIP', 'D04');
+INSERT INTO MIEJSCA (miejsce_id, typ_miejsca, nazwa_miejsca) VALUES (25, 'VIP', 'D05');
+
+SELECT * FROM MIEJSCA;
+
+COMMIT;
+
+INSERT INTO REZERWACJE(klienci_klient_id, rezerwacja_id, data_rezerwacji, pracownicy_pracownik_id) VALUES (1, 1, TO_DATE('31/01/2023', 'DD/MM/YYYY'), 100);
+INSERT INTO REZERWACJE(klienci_klient_id, rezerwacja_id, data_rezerwacji, pracownicy_pracownik_id) VALUES (2, 2, TO_DATE('01/02/2023', 'DD/MM/YYYY'), 101);
+INSERT INTO REZERWACJE(klienci_klient_id, rezerwacja_id, data_rezerwacji, pracownicy_pracownik_id) VALUES (3, 3, TO_DATE('02/02/2023', 'DD/MM/YYYY'), 102);
+INSERT INTO REZERWACJE(klienci_klient_id, rezerwacja_id, data_rezerwacji, pracownicy_pracownik_id) VALUES (4, 4, TO_DATE('02/02/2023', 'DD/MM/YYYY'), 103);
+INSERT INTO REZERWACJE(klienci_klient_id, rezerwacja_id, data_rezerwacji, pracownicy_pracownik_id) VALUES (5, 5, TO_DATE('04/02/2023', 'DD/MM/YYYY'), 104);
+INSERT INTO REZERWACJE(klienci_klient_id, rezerwacja_id, data_rezerwacji, pracownicy_pracownik_id) VALUES (6, 6, TO_DATE('31/01/2023', 'DD/MM/YYYY'), 105);
+INSERT INTO REZERWACJE(klienci_klient_id, rezerwacja_id, data_rezerwacji, pracownicy_pracownik_id) VALUES (7, 7, TO_DATE('02/02/2023', 'DD/MM/YYYY'), 106);
+INSERT INTO REZERWACJE(klienci_klient_id, rezerwacja_id, data_rezerwacji, pracownicy_pracownik_id) VALUES (8, 8, TO_DATE('02/02/2023', 'DD/MM/YYYY'), 107);
+INSERT INTO REZERWACJE(klienci_klient_id, rezerwacja_id, data_rezerwacji, pracownicy_pracownik_id) VALUES (9, 9, TO_DATE('04/02/2023', 'DD/MM/YYYY'), 100);
+INSERT INTO REZERWACJE(klienci_klient_id, rezerwacja_id, data_rezerwacji, pracownicy_pracownik_id) VALUES (10, 10, TO_DATE('04/02/2023', 'DD/MM/YYYY'), 101);
+
+SELECT * FROM REZERWACJE;
+
+COMMIT;
+
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI,GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (21, TO_DATE('2023-02-06', 'YYYY-MM-DD'),'10:30', 'Dubbing', 1);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI,GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (22, TO_DATE('2023-02-06', 'YYYY-MM-DD'),'12:30', 'Dubbing', 1);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI,GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (23, TO_DATE('2023-02-06', 'YYYY-MM-DD'),'14:30', 'Dubbing', 1);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI,GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (24, TO_DATE('2023-02-06', 'YYYY-MM-DD'),'11:30', 'Dubbing', 5);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI,GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (25, TO_DATE('2023-02-06', 'YYYY-MM-DD'),'16:30', 'Dubbing', 1);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI,GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (26, TO_DATE('2023-02-06', 'YYYY-MM-DD'),'13:30', 'Dubbing', 5);
+INSERT INTO SEANSE (SEANS_ID, DATA_PROJEKCJI,GODZINA_PROJEKCJI, TYP_SEANSU, FILMY_FILM_ID) VALUES (27, TO_DATE('2023-02-06', 'YYYY-MM-DD'),'15:30', 'Dubbing', 5);
+
+SELECT * FROM SEANSE;
+
+COMMIT;
+
+
+INSERT INTO REZERWACJE(klienci_klient_id, rezerwacja_id, data_rezerwacji, pracownicy_pracownik_id) VALUES (7, 11, TO_DATE('04/02/2023', 'DD/MM/YYYY'), 103);
+INSERT INTO REZERWACJE(klienci_klient_id, rezerwacja_id, data_rezerwacji, pracownicy_pracownik_id) VALUES (8, 12, TO_DATE('05/02/2023', 'DD/MM/YYYY'), 105);
+INSERT INTO REZERWACJE(klienci_klient_id, rezerwacja_id, data_rezerwacji, pracownicy_pracownik_id) VALUES (9, 13, TO_DATE('04/02/2023', 'DD/MM/YYYY'), 102);
+INSERT INTO REZERWACJE(klienci_klient_id, rezerwacja_id, data_rezerwacji, pracownicy_pracownik_id) VALUES (10, 14, TO_DATE('05/02/2023', 'DD/MM/YYYY'), 101);
+
+SELECT * FROM REZERWACJE;
+
+COMMIT;
+
+INSERT INTO BILETY(rezerwacje_rezerwacja_id, bilet_id, cena, data_zakupu, czy_znizka, miejsca_miejsce_id, seanse_seans_id) VALUES (1, 1, '18.00', TO_DATE('31/01/2023', 'DD/MM/YYYY'), 0, 5, 1);
+INSERT INTO BILETY(rezerwacje_rezerwacja_id, bilet_id, cena, data_zakupu, czy_znizka, miejsca_miejsce_id, seanse_seans_id) VALUES (2, 2, '18.00', TO_DATE('01/02/2023', 'DD/MM/YYYY'), 0, 15, 3);
+INSERT INTO BILETY(rezerwacje_rezerwacja_id, bilet_id, cena, data_zakupu, czy_znizka, miejsca_miejsce_id, seanse_seans_id) VALUES (3, 3, '11.00', TO_DATE('02/02/2023', 'DD/MM/YYYY'), 1, 10, 3);
+INSERT INTO BILETY(rezerwacje_rezerwacja_id, bilet_id, cena, data_zakupu, czy_znizka, miejsca_miejsce_id, seanse_seans_id) VALUES (4, 4, '12.00', TO_DATE('03/02/2023', 'DD/MM/YYYY'), 1, 20, 3);
+INSERT INTO BILETY(rezerwacje_rezerwacja_id, bilet_id, cena, data_zakupu, czy_znizka, miejsca_miejsce_id, seanse_seans_id) VALUES (5, 5, '18.00', TO_DATE('03/02/2023', 'DD/MM/YYYY'), 0, 24, 3);
+INSERT INTO BILETY(rezerwacje_rezerwacja_id, bilet_id, cena, data_zakupu, czy_znizka, miejsca_miejsce_id, seanse_seans_id) VALUES (6, 6, '18.00', TO_DATE('01/02/2023', 'DD/MM/YYYY'), 0, 4, 2);
+INSERT INTO BILETY(rezerwacje_rezerwacja_id, bilet_id, cena, data_zakupu, czy_znizka, miejsca_miejsce_id, seanse_seans_id) VALUES (7, 7, '11.00', TO_DATE('02/02/2023', 'DD/MM/YYYY'), 1, 17, 2);
+INSERT INTO BILETY(rezerwacje_rezerwacja_id, bilet_id, cena, data_zakupu, czy_znizka, miejsca_miejsce_id, seanse_seans_id) VALUES (8, 8, '18.00', TO_DATE('02/02/2023', 'DD/MM/YYYY'), 0, 13, 2);
+INSERT INTO BILETY(rezerwacje_rezerwacja_id, bilet_id, cena, data_zakupu, czy_znizka, miejsca_miejsce_id, seanse_seans_id) VALUES (9, 9, '12.00', TO_DATE('04/02/2023', 'DD/MM/YYYY'), 1, 12, 2);
+INSERT INTO BILETY(rezerwacje_rezerwacja_id, bilet_id, cena, data_zakupu, czy_znizka, miejsca_miejsce_id, seanse_seans_id) VALUES (10, 10, '20.00', TO_DATE('03/02/2023', 'DD/MM/YYYY'), 0, 22, 10);
+INSERT INTO BILETY(rezerwacje_rezerwacja_id, bilet_id, cena, data_zakupu, czy_znizka, miejsca_miejsce_id, seanse_seans_id) VALUES (11, 11, '12.00', TO_DATE('04/02/2023', 'DD/MM/YYYY'), 1, 15, 26);
+INSERT INTO BILETY(rezerwacje_rezerwacja_id, bilet_id, cena, data_zakupu, czy_znizka, miejsca_miejsce_id, seanse_seans_id) VALUES (12, 12, '12.00', TO_DATE('05/02/2023', 'DD/MM/YYYY'), 1, 14, 21);
+INSERT INTO BILETY(rezerwacje_rezerwacja_id, bilet_id, cena, data_zakupu, czy_znizka, miejsca_miejsce_id, seanse_seans_id) VALUES (13, 13, '12.00', TO_DATE('04/02/2023', 'DD/MM/YYYY'), 1, 13, 21);
+INSERT INTO BILETY(rezerwacje_rezerwacja_id, bilet_id, cena, data_zakupu, czy_znizka, miejsca_miejsce_id, seanse_seans_id) VALUES (14, 14, '12.00', TO_DATE('05/02/2023', 'DD/MM/YYYY'), 1, 12, 21);
