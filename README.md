@@ -41,3 +41,7 @@ Plik z utworzeniem tabel oraz polecenia DDL służące do wykonania relacji pomi
 Lista komend wypełniających tabele w pliku **INSERT DATA**
 
 Pliki reżyserzy1 i reżyserzy2 prezentują wygląd tabeli reżyserzy.
+
+## Przypadki użycia bazy danych
+
+Przypadki użycia bazy danych można zobaczyć w pliku **PRZYPADKI UŻYCIA**
