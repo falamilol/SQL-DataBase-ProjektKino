@@ -1,0 +1,225 @@
+CREATE TABLE bilety (
+    rezerwacje_rezerwacja_id   INTEGER NOT NULL,
+    bilet_id                   INTEGER NOT NULL,
+    cena                       NUMBER(4, 2) NOT NULL,
+    data_zakupu                DATE NOT NULL,
+    czy_znizka                 NUMBER(1) NOT NULL,
+    miejsca_miejsce_id         INTEGER NOT NULL,
+    seanse_seans_id            INTEGER NOT NULL
+);
+
+ALTER TABLE bilety ADD CONSTRAINT bilety_pk PRIMARY KEY ( bilet_id );
+
+CREATE TABLE dyżury (
+    dyzur_id                  INTEGER NOT NULL,
+    pracownicy_pracownik_id   INTEGER NOT NULL,
+    data_dyzuru               DATE NOT NULL,
+    sale_sala_id              INTEGER NOT NULL
+);
+
+ALTER TABLE dyżury ADD CONSTRAINT dyżury_pk PRIMARY KEY ( dyzur_id );
+
+CREATE TABLE filmy (
+    reżyserzy_rezyser_id   INTEGER NOT NULL,
+    film_id                INTEGER NOT NULL,
+    gatunek                VARCHAR2(30 CHAR) NOT NULL,
+    czas_trwania           INTEGER NOT NULL,
+    rok_produkcji          INTEGER NOT NULL,
+    tytul                  VARCHAR2(100 CHAR) NOT NULL
+);
+
+ALTER TABLE filmy ADD CONSTRAINT filmy_pk PRIMARY KEY ( film_id );
+
+CREATE TABLE klienci (
+    klient_id        INTEGER NOT NULL,
+    imie             VARCHAR2(50 CHAR) NOT NULL,
+    nazwisko         VARCHAR2(80 CHAR) NOT NULL,
+    email            VARCHAR2(100 CHAR),
+    czy_pelnoletni   NUMBER(1) NOT NULL
+);
+
+ALTER TABLE klienci ADD CONSTRAINT klienci_pk PRIMARY KEY ( klient_id );
+
+CREATE TABLE miejsca (
+    miejsce_id      INTEGER NOT NULL,
+    typ_miejsca     VARCHAR2(30 CHAR) NOT NULL,
+    nazwa_miejsca   VARCHAR2(3 CHAR) NOT NULL
+);
+
+ALTER TABLE miejsca ADD CONSTRAINT miejsca_pk PRIMARY KEY ( miejsce_id );
+
+CREATE TABLE pracownicy (
+    pracownik_id        INTEGER NOT NULL,
+    imie                VARCHAR2(50) NOT NULL,
+    nazwisko            VARCHAR2(80) NOT NULL,
+    data_zatrudnienia   DATE NOT NULL,
+    pensja              NUMBER(6, 2) NOT NULL
+);
+
+ALTER TABLE pracownicy ADD CONSTRAINT pracownicy_pk PRIMARY KEY ( pracownik_id );
+
+CREATE TABLE projektory (
+    projektor_id    INTEGER NOT NULL,
+    rozdzielczosc   VARCHAR2(10 CHAR) NOT NULL,
+    czy_3d          NUMBER(1) NOT NULL
+);
+
+ALTER TABLE projektory ADD CONSTRAINT projektory_pk PRIMARY KEY ( projektor_id );
+
+CREATE TABLE rezerwacje (
+    klienci_klient_id         INTEGER NOT NULL,
+    rezerwacja_id             INTEGER NOT NULL,
+    data_rezerwacji           TIMESTAMP,
+    pracownicy_pracownik_id   INTEGER
+);
+
+ALTER TABLE rezerwacje ADD CONSTRAINT rezerwacje_pk PRIMARY KEY ( rezerwacja_id );
+
+CREATE TABLE reżyserzy (
+    rezyser_id     INTEGER NOT NULL,
+    imie           VARCHAR2(50 CHAR) NOT NULL,
+    nazwisko       VARCHAR2(80) NOT NULL,
+    ilosc_nagrod   INTEGER
+);
+
+ALTER TABLE reżyserzy ADD CONSTRAINT reżyserzy_pk PRIMARY KEY ( rezyser_id );
+
+CREATE TABLE sa_mi (
+    sale_sala_id         INTEGER NOT NULL,
+    miejsca_miejsce_id   INTEGER NOT NULL
+);
+
+ALTER TABLE sa_mi ADD CONSTRAINT relation_1_pk PRIMARY KEY ( sale_sala_id,
+                                                             miejsca_miejsce_id );
+
+CREATE TABLE sale (
+    sala_id                   INTEGER NOT NULL,
+    pojemnosc                 INTEGER NOT NULL,
+    ile_rzedow                INTEGER NOT NULL,
+    projektory_projektor_id   INTEGER NOT NULL
+);
+
+CREATE UNIQUE INDEX sale__idx ON
+    sale (
+        projektory_projektor_id
+    ASC );
+
+ALTER TABLE sale ADD CONSTRAINT sale_pk PRIMARY KEY ( sala_id );
+
+CREATE TABLE seanse (
+    filmy_film_id       INTEGER NOT NULL,
+    seans_id            INTEGER NOT NULL,
+    data_projekcji      DATE NOT NULL,
+    godzina_projekcji   VARCHAR2(10 CHAR) NOT NULL,
+    typ_seansu          VARCHAR2(20 CHAR) NOT NULL
+);
+
+CREATE SEQUENCE projektor_id_seq INCREMENT BY 10
+START WITH 10
+MAXVALUE 200
+NOCACHE;
+
+
+CREATE SEQUENCE pracownik_id_seq INCREMENT BY 1
+START WITH 100
+MAXVALUE 500
+NOCACHE;
+
+
+ALTER TABLE seanse ADD CONSTRAINT seanse_pk PRIMARY KEY ( seans_id );
+
+ALTER TABLE bilety
+    ADD CONSTRAINT bilety_miejsca_fk FOREIGN KEY ( miejsca_miejsce_id )
+        REFERENCES miejsca ( miejsce_id );
+
+ALTER TABLE bilety
+    ADD CONSTRAINT bilety_rezerwacje_fk FOREIGN KEY ( rezerwacje_rezerwacja_id )
+        REFERENCES rezerwacje ( rezerwacja_id );
+
+ALTER TABLE bilety
+    ADD CONSTRAINT bilety_seanse_fk FOREIGN KEY ( seanse_seans_id )
+        REFERENCES seanse ( seans_id );
+
+ALTER TABLE dyżury
+    ADD CONSTRAINT dyżury_pracownicy_fk FOREIGN KEY ( pracownicy_pracownik_id )
+        REFERENCES pracownicy ( pracownik_id );
+
+ALTER TABLE dyżury
+    ADD CONSTRAINT dyżury_sale_fk FOREIGN KEY ( sale_sala_id )
+        REFERENCES sale ( sala_id );
+
+ALTER TABLE filmy
+    ADD CONSTRAINT filmy_reżyserzy_fk FOREIGN KEY ( reżyserzy_rezyser_id )
+        REFERENCES reżyserzy ( rezyser_id );
+
+ALTER TABLE sa_mi
+    ADD CONSTRAINT relation_1_miejsca_fk FOREIGN KEY ( miejsca_miejsce_id )
+        REFERENCES miejsca ( miejsce_id );
+
+ALTER TABLE sa_mi
+    ADD CONSTRAINT relation_1_sale_fk FOREIGN KEY ( sale_sala_id )
+        REFERENCES sale ( sala_id );
+
+ALTER TABLE rezerwacje
+    ADD CONSTRAINT rezerwacje_klienci_fk FOREIGN KEY ( klienci_klient_id )
+        REFERENCES klienci ( klient_id );
+
+ALTER TABLE rezerwacje
+    ADD CONSTRAINT rezerwacje_pracownicy_fk FOREIGN KEY ( pracownicy_pracownik_id )
+        REFERENCES pracownicy ( pracownik_id );
+
+ALTER TABLE sale
+    ADD CONSTRAINT sale_projektory_fk FOREIGN KEY ( projektory_projektor_id )
+        REFERENCES projektory ( projektor_id );
+
+ALTER TABLE seanse
+    ADD CONSTRAINT seanse_filmy_fk FOREIGN KEY ( filmy_film_id )
+        REFERENCES filmy ( film_id );
+
+ALTER TABLE bilety
+    ADD CONSTRAINT bilety_miejsca_fk FOREIGN KEY ( miejsca_miejsce_id )
+        REFERENCES miejsca ( miejsce_id );
+
+ALTER TABLE bilety
+    ADD CONSTRAINT bilety_rezerwacje_fk FOREIGN KEY ( rezerwacje_rezerwacja_id )
+        REFERENCES rezerwacje ( rezerwacja_id );
+
+ALTER TABLE bilety
+    ADD CONSTRAINT bilety_seanse_fk FOREIGN KEY ( seanse_seans_id )
+        REFERENCES seanse ( seans_id );
+
+ALTER TABLE dyżury
+    ADD CONSTRAINT dyżury_pracownicy_fk FOREIGN KEY ( pracownicy_pracownik_id )
+        REFERENCES pracownicy ( pracownik_id );
+
+ALTER TABLE dyżury
+    ADD CONSTRAINT dyżury_sale_fk FOREIGN KEY ( sale_sala_id )
+        REFERENCES sale ( sala_id );
+
+ALTER TABLE filmy
+    ADD CONSTRAINT filmy_reżyserzy_fk FOREIGN KEY ( reżyserzy_rezyser_id )
+        REFERENCES reżyserzy ( rezyser_id );
+
+ALTER TABLE sa_mi
+    ADD CONSTRAINT relation_1_miejsca_fk FOREIGN KEY ( miejsca_miejsce_id )
+        REFERENCES miejsca ( miejsce_id );
+
+ALTER TABLE sa_mi
+    ADD CONSTRAINT relation_1_sale_fk FOREIGN KEY ( sale_sala_id )
+        REFERENCES sale ( sala_id );
+
+ALTER TABLE rezerwacje
+    ADD CONSTRAINT rezerwacje_klienci_fk FOREIGN KEY ( klienci_klient_id )
+        REFERENCES klienci ( klient_id );
+
+ALTER TABLE rezerwacje
+    ADD CONSTRAINT rezerwacje_pracownicy_fk FOREIGN KEY ( pracownicy_pracownik_id )
+        REFERENCES pracownicy ( pracownik_id );
+
+ALTER TABLE sale
+    ADD CONSTRAINT sale_projektory_fk FOREIGN KEY ( projektory_projektor_id )
+        REFERENCES projektory ( projektor_id );
+
+ALTER TABLE seanse
+    ADD CONSTRAINT seanse_filmy_fk FOREIGN KEY ( filmy_film_id )
+        REFERENCES filmy ( film_id );
