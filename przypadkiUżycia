@@ -1,0 +1,48 @@
+1. Sala VIP z projektorem 3D nie została posprzątana po wieczornym seansie 31.01.2023 roku. 
+Wyświetl imię oraz nazwisko pracownika zajmującego się tego dnia salą VIP, która posiada projektor w wersji 3D. 
+Sala VIP to taka, która ma dodatkowy rząd oznaczony jako VIP. Użyj aliasu IMIE_NAZWISKO dla kolumny łączącej imię i nazwisko pracownika. 
+
+SELECT (imie || ' ' ||  nazwisko) AS IMIE_NAZWISKO
+FROM pracownicy p JOIN dyżury d ON(p.pracownik_id = d.pracownicy_pracownik_id)
+                  JOIN sale s ON(s.sala_id = d.sale_sala_id)
+                  JOIN projektory pr ON(pr.projektor_id  = s.projektory_projektor_id)
+WHERE s.projektory_projektor_id IN (SELECT s.projektory_projektor_id
+                        FROM sale 
+                        WHERE s.projektory_projektor_id = 10);
+
+
+-------------------------------------------------------------------
+
+2. Pracownicy kina “Zeus” chcą znać średnią ilość biletów zakupionych przez osoby dorosłe w ciągu jednego dnia,
+aby zweryfikować w jaki dzień tygodnia osoby dorosłe najchętniej chodzą do kina. Wyświetl dzień, w którym średnia była najwyższa oraz wskaż,
+jaki to dzień tygodnia. 
+
+SELECT COUNT(bilet_id) "Ilość biletów", to_char(data_zakupu, 'day') "Dzień tygodnia"
+FROM bilety 
+WHERE czy_znizka = 0
+GROUP BY data_zakupu
+ORDER BY COUNT(bilet_id) DESC;
+
+-------------------------------------------------------------------
+
+3. Pan Wojtek lubi chodzić do kina późną porą. Postanowił, że 31 stycznia 2023 roku wybierze się na jakiś ciekawy wieczorny seans.
+Wyświetl tytuł filmu oraz godzinę najpóźniejszego seansu granego tego dnia. 
+
+SELECT fi.tytul, se.godzina_projekcji
+FROM filmy fi
+JOIN seanse se ON (fi.film_id = se.filmy_film_id)
+WHERE se.data_projekcji = '2023-01-31'
+ORDER BY se.godzina_projekcji DESC
+OFFSET 0 ROWS
+FETCH FIRST 1 ROW ONLY;
+
+--------------------------------------------------------------------
+
+4. Kino “Zeus” planuje zorganizować dzień małego kinomaniaka i z tej okazji 6 lutego organizuje same dziecięce seanse.
+Wyświetl godzinę seansu, na który zakupiono najwięcej biletów, a także wskaż  tytuł i czas trwania filmu. 
+
+SELECT f.tytul, SEANS_ID, GODZINA_PROJEKCJI, COUNT(bilet_id) from seanse
+JOIN filmy f on f.film_id = seanse.filmy_film_id
+JOIN bilety b on seanse.seans_id = b.seanse_seans_id
+WHERE data_projekcji = TO_DATE('2023-02-06','YYYY-MM-DD')
+group by GODZINA_PROJEKCJI, SEANS_ID, f.tytul;
