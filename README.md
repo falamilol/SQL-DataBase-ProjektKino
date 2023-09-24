@@ -44,4 +44,4 @@ Pliki reżyserzy1 i reżyserzy2 prezentują wygląd tabeli reżyserzy.
 
 ## Przypadki użycia bazy danych
 
-Przypadki użycia bazy danych można zobaczyć w pliku **PRZYPADKI UŻYCIA**
+Przypadki użycia bazy danych można zobaczyć w pliku **PRZYPADKI UŻYCIA.**
